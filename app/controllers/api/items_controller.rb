@@ -5,7 +5,7 @@ class Api::ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    if @item.saves
+    if @item.save
       render json: @item
     else
       render json: { errors: @item.errors }, status: :unprocessable_entry
