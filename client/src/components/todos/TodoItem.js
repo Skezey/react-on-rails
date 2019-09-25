@@ -1,5 +1,5 @@
 import React from 'react';
-import { Header, Checkbox } from 'semantic-ui-react';
+import { Header, Checkbox, Button, Icon } from 'semantic-ui-react';
 
 const styles = {
   flex: {
@@ -15,7 +15,7 @@ const styles = {
   }
 }
 
-const TodoItem = ({ id, todo_name, complete, update }) => (
+const TodoItem = ({ id, todo_name, complete, update, rm }) => (
   <div style={styles.flex}>
     <div style={styles.flex}>
       <Checkbox
@@ -26,6 +26,14 @@ const TodoItem = ({ id, todo_name, complete, update }) => (
         <Header>{todo_name}</Header>
       </div>
     </div>
+    <Button
+    icon
+    color='red'
+    size='small'
+    onClick={ () => rm(id) }
+    >
+    <Icon name='trash'/>
+    </Button>
   </div>
 )
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import TodoItem from './TodoItem';
 
-const TodoList = ({ todos, update }) => (
+const TodoList = ({ todos, update, rm }) => (
   <div>
     {
       todos.map( todo =>
@@ -9,6 +9,7 @@ const TodoList = ({ todos, update }) => (
           key={todo.id}
           {...todo}
           update={ update }
+          rm={ rm }
         />
       )
     }
