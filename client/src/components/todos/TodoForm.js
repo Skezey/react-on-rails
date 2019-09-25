@@ -20,14 +20,14 @@ class TodoForm extends Component {
   render() {
     const { todo_name } = this.state
     return(
-      <Form onSubmit={this.handleSubmit}>
+      <Form onSubmit={ this.handleSubmit }>
         <Form.Input
           label='Todo'
           placeholder='add a todo'
           required
           name='todo_name'
-          value={todo_name}
-          onChange={this.handleChange}
+          value={ todo_name }
+          onChange={ this.handleChange }
         />
       </Form>
     )

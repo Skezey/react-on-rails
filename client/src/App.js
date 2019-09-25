@@ -35,7 +35,19 @@ class App extends Component {
 
   updateTodo = (id) => {
     // TODO update the todo with id in the db
-    // TODO update the todo with the id in the state
+    axios.put(`/api/items/${id}`)
+    .then( res => {
+      // TODO update the todo with the id in the state
+      const todos = this.state.todos.map( t => {
+        if (t.id === id)
+          return res.data
+        return t
+      })
+      this.setState({ todos })
+    })
+    .catch( err => {
+      console.log(err)
+   })
   }
 
   deleteTodo = (id) => {
@@ -48,7 +60,7 @@ class App extends Component {
     return (
       <Container>
         <TodoForm add={this.addItem} />
-        <TodoList todos={ todos } />
+        <TodoList todos={ todos } update={ this.updateTodo } />
       </Container>
     )
   }

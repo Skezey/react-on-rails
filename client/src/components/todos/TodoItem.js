@@ -15,11 +15,12 @@ const styles = {
   }
 }
 
-const TodoItem = ({ id, todo_name, complete }) => (
+const TodoItem = ({ id, todo_name, complete, update }) => (
   <div style={styles.flex}>
     <div style={styles.flex}>
       <Checkbox
         defaultChecked={complete}
+        onClick={ () => update(id) }
       />
       <div style={complete ? styles.complete : {} } className='center'>
         <Header>{todo_name}</Header>
